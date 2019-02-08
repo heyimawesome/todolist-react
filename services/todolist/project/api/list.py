@@ -5,7 +5,7 @@ from models import List
 list_bp = Blueprint('list', __name__)
 
 
-@list_bp.route('/ ', methods=['GET'])
+@list_bp.route('/', methods=['GET'])
 def get_all_lists():
     pass
 
