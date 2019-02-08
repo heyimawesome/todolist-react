@@ -10,3 +10,4 @@ class BaseConfig:
 class TestingConfig(BaseConfig):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL_TEST')
+    PRESERVE_CONTEXT_ON_EXCEPTION = False
