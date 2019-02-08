@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from models import List
+from project.api.models import List
 
 list_bp = Blueprint('list', __name__)
 
