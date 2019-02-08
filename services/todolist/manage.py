@@ -16,7 +16,10 @@ def testing():
 
 @cli.command()
 def test():
-    tests = unittest.TestLoader().discover('project/tests', pattern='test*.py')
+    tests = unittest.TestLoader().discover(
+        'project/tests',
+        pattern='test*.py'
+    )
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         return 0
