@@ -16,6 +16,10 @@ def create_app(script_info=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
+    # blueprints
+    from project.api.list import list_bp
+    app.register_blueprint(list_bp, url_prefix='/list')
+
     @app.shell_context_processor
     def ctx():
         return {'app': app, 'db': db}
