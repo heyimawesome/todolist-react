@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "${workspaceFolder}/services/todolist/.env/Scripts/python"
+		"python.pythonPath": "${workspaceFolder}/services/todolist/.env/bin/python"
 	}
 }
