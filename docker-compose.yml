@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  todolist:
+    build:
+      context: ./services/todolist
+      dockerfile: Dockerfile
+    volumes:
+      - './services/todolist:/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.BaseConfig
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/todo
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./services/db
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - todolist
