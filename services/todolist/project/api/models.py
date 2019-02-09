@@ -3,7 +3,10 @@ from project import db
 
 class List(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(64), unique=True, nullable=False)
+    title = db.Column(db.String(64), unique=True, nullable=False)
+
+    def __init__(self, title):
+        self.title = title
 
 
 class Item(db.Model):
