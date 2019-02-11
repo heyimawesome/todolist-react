@@ -1,16 +1,8 @@
 import json
 import unittest
 
-from project import db
-from project.api.models import List
 from project.tests.base import BaseTestCase
-
-
-def add_list(title):
-    new_list = List(title=title)
-    db.session.add(new_list)
-    db.session.commit()
-    return new_list
+from utils import add_list
 
 
 class TestListBlueprint(BaseTestCase):
