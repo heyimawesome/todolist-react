@@ -14,3 +14,7 @@ class Item(db.Model):
     item = db.Column(db.String(128), unique=True, nullable=False)
     list_id = db.Column(db.Integer, db.ForeignKey('list.id'), nullable=False)
     complete = db.Column(db.Boolean(), default=False, nullable=False)
+
+    def __init__(self, item, list_id):
+        self.item = item
+        self.list_id = list_id

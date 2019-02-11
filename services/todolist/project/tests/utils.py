@@ -9,8 +9,8 @@ def add_list(title):
     return new_list
 
 
-def add_item(item):
-    new_item = Item(item=item)
+def add_item(item, list_id):
+    new_item = Item(item=item, list_id=list_id)
     db.session.add(new_item)
     db.session.commit()
     return new_item
