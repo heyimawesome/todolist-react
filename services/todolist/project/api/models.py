@@ -13,4 +13,4 @@ class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     item = db.Column(db.String(128), unique=True, nullable=False)
     list_id = db.Column(db.Integer, db.ForeignKey('list.id'), nullable=False)
-    status = db.Column(db.Boolean(), default=False, nullable=False)
+    complete = db.Column(db.Boolean(), default=False, nullable=False)
