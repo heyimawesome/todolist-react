@@ -11,7 +11,7 @@ def get_all_lists():
     response_object = {
         'status': 'success',
         'data': {
-            'lists': [lists.title for lists in List.query.all()]
+            'list': [lists.title for lists in List.query.all()]
         }
     }
     return jsonify(response_object), 200

@@ -15,14 +15,14 @@ class TestListBlueprint(BaseTestCase):
         data = json.loads(response.data.decode())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['status'], 'success')
-        self.assertEqual(len(data['data']['lists']), 2)
+        self.assertEqual(len(data['data']['list']), 2)
         self.assertIn(
             'This is a test list',
-            data['data']['lists'][0]
+            data['data']['list'][0]
         )
         self.assertIn(
             'This is also a test list',
-            data['data']['lists'][1]
+            data['data']['list'][1]
         )
 
     def test_get_single_list(self):
@@ -54,7 +54,7 @@ class TestListBlueprint(BaseTestCase):
         test_list = add_list('This is also a test list')
         response = self.client.get('/list/')
         data = json.loads(response.data.decode())
-        self.assertEqual(len(data['data']['lists']), 2)
+        self.assertEqual(len(data['data']['list']), 2)
 
         response = self.client.get(f'/list/remove/{test_list.id}')
         data = json.loads(response.data.decode())
@@ -64,7 +64,7 @@ class TestListBlueprint(BaseTestCase):
 
         response = self.client.get('/list/')
         data = json.loads(response.data.decode())
-        self.assertEqual(len(data['data']['lists']), 1)
+        self.assertEqual(len(data['data']['list']), 1)
 
 
 if __name__ == '__main__':
